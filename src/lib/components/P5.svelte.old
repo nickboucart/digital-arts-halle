@@ -1,0 +1,85 @@
+<script lang="ts">
+	import { url } from '$lib/config';
+	import { CirclePlay, CirclePause } from 'lucide-svelte';
+	import CodeMirror from 'svelte-codemirror-editor';
+	import { javascript } from '@codemirror/lang-javascript';
+	import { cobalt } from 'thememirror';
+
+	let { code, htmlPage = 'index.html' } = $props();
+
+	let name = Math.random().toString(36).substring(2, 7);
+
+	let getUrlForReadyIframe = () => {
+		return new URL('/p5/ready/index.html', url).toString();
+	};
+
+	let getEntireUrlForIframe = (sketch: string, html: string) => {
+		let urlForSketch = new URL('/p5/' + html, url);
+		urlForSketch.searchParams.set('sketch', sketch);
+		return urlForSketch.toString();
+	};
+</script>
+
+<div class="flip-card-container">
+	<div class="flip-card">
+        <div class="flip-card-front">
+			<!-- <div class="bg-base-200 flex flex-row gap-5">
+				<a class="btn" href={getEntireUrlForIframe(code, htmlPage)} target={name}><CirclePlay /></a>
+				<a class="btn" href={getUrlForReadyIframe()} target={name}><CirclePause /></a>
+			</div> -->
+			<iframe class="mt-2 w-full h-full" {name} title="p5 sketch" src={getEntireUrlForIframe(code, htmlPage)}></iframe>
+		</div>
+		<div class="flip-card-back">
+			<CodeMirror
+				bind:value={code}
+				lang={javascript()}
+				theme={cobalt}
+				class="not-prose text-left text-base mx-auto"
+				styles={{
+					'&': {
+						height: '30rem',
+                        width: '66%'
+					}
+				}}
+			/>
+		</div>
+	</div>
+</div>
+
+<style>
+	.flip-card-container {
+		width: 100%;
+		height: 400px;
+		perspective: 1000px;
+	}
+	.flip-card {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.5s;
+		transform-style: preserve-3d;
+	}
+	 .flip-card-container:hover .flip-card {
+		transform: rotateY(180deg); 
+	} 
+	/* Position the front and back side */
+	.flip-card-front,
+	.flip-card-back {
+		position: absolute;
+		width: 100%;
+		height: 30rem;
+		-webkit-backface-visibility: hidden; /* Safari */
+		backface-visibility: hidden;
+
+		/* border-radius: 0.5rem; */
+	}
+	.flip-card-front {
+		background-color: #191919;
+		color: #fff;
+	}
+	.flip-card-back {
+		background-color: #191919;
+		color: #fff;
+		transform: rotateY(180deg);
+	}
+</style>
