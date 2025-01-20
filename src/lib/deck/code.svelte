@@ -1,6 +1,6 @@
 <script lang="ts">
 
-  let {id = null, lines = null, noescape=false, children} = $props();
+  let {id = null, lines = null, noescape=true, children} = $props();
 </script>
 
 <pre data-id={id || null}>

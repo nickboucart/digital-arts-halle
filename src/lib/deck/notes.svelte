@@ -1,3 +1,7 @@
+<script lang="ts">
+	let {children} = $props();
+</script>
+
 <aside class="notes">
-	<slot />
+	{@render children?.()}
 </aside>

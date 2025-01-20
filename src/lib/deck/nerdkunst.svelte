@@ -10,8 +10,8 @@ let x = 0;
 let y = 0;
 
 function setup() {
-  createCanvas(500, 500);
-    background(0);
+  createCanvas(500, 400);
+    background("#111111");
   
   }
 
@@ -50,12 +50,16 @@ import vierkanten from "$lib/assets/vierkanten.png"
 </Slide>
 
 <Slide>
-  <P5 code={sketch} /> 
+  <P5 code={sketch} editor={false} autoplay={true} /> 
 </Slide> 
 
 
-
 <Slide>
-  <h1>toedels</h1>>
-  <p>hier komt veeeeeel text</p>
+  <h2>Famous one liner</h2>
+ <Code>
+  10 PRINT CHR$(205.5+RND(1)); : GOTO 10
+ </Code>
+ <Notes>
+  <p>early 80's commodore 64  focus on single line programs, this is one of the most famous ones, and an excellent example of generative art</p>
+ </Notes>
 </Slide> 
