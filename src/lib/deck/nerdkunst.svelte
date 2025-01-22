@@ -4,6 +4,7 @@
 	import Markdown from './markdown.svelte'
 	import Notes from './notes.svelte'
 	import P5 from '$lib/components/P5.svelte'
+  import Strudel from '$lib/components/Strudel.svelte'
 
 	let print10 = `const size = 15;
 let x = 0;
@@ -695,6 +696,11 @@ import gonio from "$lib/assets/gonio.png";
 <Slide>
   <h3>P5js and AI</h3>
   <P5 code={steam} editor={false} htmlPage="ml5/index.html" autoplay={false} />
+</Slide>
+
+<Slide>
+  <h3>A few words on music...</h3>
+  <Strudel />
 </Slide>
 
 <Slide>
