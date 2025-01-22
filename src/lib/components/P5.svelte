@@ -16,6 +16,10 @@
 			: new URL('/p5/ready/index.html', url).toString();
 	};
 
+	let getPauzeUrlForIframe = () => {
+		return new URL('/p5/ready/index.html', url).toString();
+	};
+
 	let getEntireUrlForIframe = (sketch: string, html: string) => {
 		let urlForSketch = new URL('/p5/' + html, url);
 		urlForSketch.searchParams.set('sketch', sketch);
@@ -33,13 +37,13 @@
 
 <div class="not-prose flex w-full flex-row justify-center gap-10">
 	{#if editor}
-<div transition:scale>
+<div transition:scale class="w-full">
 		<CodeMirror
-        
+			lineWrapping
 			bind:value={code}
 			lang={javascript()}
 			theme={cobalt}
-			class="not-prose w-full text-left text-base"
+			class="not-prose w-full text-left text-base grow"
 			styles={{
 				'&': {
 					height: '30rem'
@@ -59,7 +63,7 @@
 		></iframe>
 		<div class="bg-base-200 flex flex-row justify-center gap-5">
 			<a class="btn" href={getEntireUrlForIframe(code, htmlPage)} target={name}><CirclePlay /></a>
-			<a class="btn" href={getUrlForReadyIframe()} target={name}><CirclePause /></a>
+			<a class="btn" href={getPauzeUrlForIframe()} target={name}><CirclePause /></a>
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_missing_attribute -->
 			<!-- svelte-ignore a11y_no_static_element_interactions -->
