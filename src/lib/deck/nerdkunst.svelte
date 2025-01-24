@@ -560,11 +560,12 @@ import gonio from "$lib/assets/gonio.png";
 </Slide>
 
 <Slide>
-  <h3>Different presentations</h3>
+  <h3>Presenting your work</h3>
   <ul style="list-style-type: none;">
-    <li>Generate image and print/plot</li>
+    <li>Print/Plot your generated images</li>
     <li>Digital photoframe</li>
     <li>Interactive installation</li>
+    <li>Live Coding</li>
     <li>...</li>
   </ul>
   </Slide>
