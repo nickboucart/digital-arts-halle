@@ -469,9 +469,6 @@ import gonio from "$lib/assets/gonio.png";
 </script>
 
 
-
-
-
 <Slide backgroundImage={vierkanten}>
 	<!-- todo: background image van de site en veel betere styling van tekst -->
 	<h1 class="text-black">NerdKunst</h1>
@@ -698,10 +695,7 @@ import gonio from "$lib/assets/gonio.png";
   <P5 code={steam} editor={false} htmlPage="ml5/index.html" autoplay={false} />
 </Slide>
 
-<Slide>
-  <h3>A few words on music...</h3>
-  <Strudel />
-</Slide>
+
 
 <Slide>
   <h3>Some resources</h3>
@@ -710,6 +704,67 @@ import gonio from "$lib/assets/gonio.png";
     <li><a href="https://thecodingtrain.com/">thecodingtrain.com</a></li>
     <li><a href="https://www.nerdkunst.be">nerdkunst.be</a></li>
   </ul>
+</Slide>
+
+<Slide>
+  <Slide>
+  <h3>A few words on music...</h3>
+  <div class="flex flex-row justify-center">
+    <Strudel tune={`setcps(1)
+n("<0 1 2 3 4>*8").scale('G4 minor')
+.s("gm_lead_6_voice")
+.clip(sine.range(.2,.8).slow(8))
+.jux(rev)
+.room(2)
+.sometimes(add(note("12")))
+.lpf(perlin.range(200,20000).slow(4))`}/>
+  </div>
+</Slide>
+<Slide>
+  <h3>First Notes</h3>
+  <Strudel tune={`note("c e g b").sound("piano")`}></Strudel>
+</Slide>
+
+<Slide>
+  <h3>Stacking and combining</h3>
+  <Strudel tune={`note("48 67 63 [62, 58]")
+.sound("piano gm_electric_guitar_muted")`}></Strudel>
+</Slide>
+
+<Slide>
+  <h3>Notes longer or shorter</h3>
+  <Strudel tune={`note("[36 34 41 39]/4").sound("gm_acoustic_bass")`}></Strudel>
+</Slide>
+
+<Slide>
+  <h3>Alternate notes</h3>
+  <Strudel tune={`note("60 <63 62 65 63>")
+  .sound("gm_xylophone")`}></Strudel>
+</Slide>
+
+<Slide>
+  <h3>Alternate notes</h3>
+  <Strudel tune={`sound("bd*4, [~ <sd cp>]*2, [~ hh]*4")
+.bank("RolandTR909")`}></Strudel>
+</Slide>
+
+<Slide>
+  <h3>Bring it all together</h3>
+  <Strudel tune={`_$: note("<[c2 c3]*4 [bb1 bb2]*4 [f2 f3]*4 [eb2 eb3]*4>")
+.sound("gm_synth_bass_1").lpf(800)
+
+_$: n(\`<
+[~ 0] 2 [0 2] [~ 2]
+[~ 0] 1 [0 1] [~ 1]
+[~ 0] 3 [0 3] [~ 3]
+[~ 0] 2 [0 2] [~ 2]
+>*4\`).scale("C4:minor")
+.sound("gm_synth_strings_1")
+
+_$: sound("bd*4, [~ <sd cp>]*2, [~ hh]*4")
+.bank("RolandTR909")`}></Strudel>
+</Slide>
+
 </Slide>
 
 <Slide backgroundImage={vierkanten}>
