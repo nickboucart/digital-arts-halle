@@ -47,7 +47,6 @@ function setup() {
 }
 
 function draw() {
-  fill(230);
   stroke("white");
   strokeWeight(2);
   for (let x = 0; x < width; x += size) {
@@ -477,6 +476,10 @@ import gonio from "$lib/assets/gonio.png";
 </Slide>
 
 <Slide>
+  <P5 code={print10} editor={false} autoplay={true} /> 
+</Slide> 
+
+<Slide>
   <h3>Famous one liner: 10 PRINT</h3>
  <Code>
   10 PRINT CHR$(205.5+RND(1)); : GOTO 10
@@ -487,26 +490,9 @@ import gonio from "$lib/assets/gonio.png";
 </Slide> 
 
 <Slide>
-  <P5 code={print10} editor={false} autoplay={true} /> 
-</Slide> 
-
-<Slide>
-  <h3>Express yourselve through code</h3>
-  <ul style="list-style-type: none;" class="r-stack">
-    <li class="fragment fade-in-then-out">Visual - show, don't tell</li>
-    <li class="fragment fade-in-then-out">Fun way to explore programming and Algorithms</li>
-    <li class="fragment fade-in-then-out">Combo of (computer) science and art</li>
-    <li class="fragment fade-in-then-out">Educational and interactive</li>
-    <li class="fragment fade-in-then-out">Super fun to fiddle with parameters and see result</li>
-  </ul>
-  <p class="fragment fade-in text-right">Works for me &#128513;</p>
-  </Slide>
-
-<Slide>
 <blockquote class="text-justify text-base"><span class="font-semibold">Generative art</span> is post-conceptual art that has been created (in whole or in part) with the use of an autonomous system. An autonomous system in this context is generally one that is non-human and can independently determine features of an artwork that would otherwise require decisions made directly by the artist. In some cases the human creator may claim that the generative system represents their own artistic idea, and in others that the system takes on the role of the creator. </blockquote>
-<p class="font-light text-sm text-right">Wikipedia</p>
+<p class="font-light text-sm text-right pr-24">Wikipedia</p>
 </Slide> 
-
 
 <Slide>
 <h3>Generative Art Pioneers</h3>
@@ -569,6 +555,18 @@ import gonio from "$lib/assets/gonio.png";
     <li>...</li>
   </ul>
   </Slide>
+
+  <Slide>
+    <h3>Express yourselve through code</h3>
+    <ul style="list-style-type: none;" class="r-stack">
+      <li class="fragment fade-in-then-out">Visual - show, don't tell</li>
+      <li class="fragment fade-in-then-out">Fun way to explore programming and algorithms</li>
+      <li class="fragment fade-in-then-out">Combo of (computer) science and art</li>
+      <li class="fragment fade-in-then-out">Educational and interactive</li>
+      <li class="fragment fade-in-then-out">Super fun to fiddle with parameters and see result</li>
+    </ul>
+    <p class="fragment fade-in text-right">Works for me &#128513;</p>
+    </Slide>
 
 <Slide>
   <h3>Key Concepts</h3>
