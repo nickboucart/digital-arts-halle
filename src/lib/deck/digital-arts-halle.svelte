@@ -533,7 +533,7 @@ let bodyPose;
 
 function preload() {
   // Load the bodyPose model
-  bodyPose = ml5.bodyPose();
+  bodyPose = ml5.bodyPose("MoveNet", {modelType: "SINGLEPOSE_LIGHTNING", modelUrl: "/movenet/model.json"});
 }
 
 class Deeltje {
