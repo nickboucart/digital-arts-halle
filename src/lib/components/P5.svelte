@@ -43,7 +43,7 @@
 			bind:value={code}
 			lang={javascript()}
 			theme={cobalt}
-			class="not-prose w-full text-left text-base grow"
+			class="not-prose w-full text-left text-xs grow"
 			styles={{
 				'&': {
 					height: '30rem'
@@ -59,19 +59,20 @@
 			class="mt-2 h-[28rem] w-full bg-white"
 			{name}
 			title="p5 sketch"
-			src={getUrlForReadyIframe()}
+			data-src={getUrlForReadyIframe()}
+			data-preload
 		></iframe>
 		<div class="bg-base-200 flex flex-row justify-center gap-5">
-			<a class="btn" href={getEntireUrlForIframe(code, htmlPage)} target={name}><CirclePlay /></a>
-			<a class="btn" href={getPauzeUrlForIframe()} target={name}><CirclePause /></a>
+			<!-- <a class="btn" href={getEntireUrlForIframe(code, htmlPage)} target={name}><CirclePlay /></a>
+			<a class="btn" href={getPauzeUrlForIframe()} target={name}><CirclePause /></a> -->
 			<!-- svelte-ignore a11y_click_events_have_key_events -->
 			<!-- svelte-ignore a11y_missing_attribute -->
 			<!-- svelte-ignore a11y_no_static_element_interactions -->
-			{#if editor}
+			<!-- {#if editor}
 				<a class="btn" onclick={() => {toggleEditor(false)}}><Fullscreen /></a>
 			{:else}
 				<a class="btn" onclick={() => {toggleEditor(true)}}><Code /></a>
-			{/if}
+			{/if} -->
 		</div>
 	</div>
 </div>

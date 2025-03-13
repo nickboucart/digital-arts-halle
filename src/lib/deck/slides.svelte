@@ -10,7 +10,7 @@
 	import 'reveal.js/dist/theme/night.css'
 	import 'reveal.js/plugin/highlight/monokai.css'
 
-	let { children } = $props();
+	let { children, autoSlide = 0 } = $props();
 
 	onMount(() => {
 		const deck = new Reveal({
@@ -18,8 +18,11 @@
 			autoAnimateEasing: 'ease',
 			autoAnimateDuration: 1,
 			hash: false,
+			autoSlide,
+			loop: true,
+			viewDistance: 2,
 			// disableLayout: true
-			// controls: false,
+			controls: false,
 			// progress: false
 		})
 
