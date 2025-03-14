@@ -826,3 +826,5 @@ import variatie_truchet from "$lib/assets/variatie-truchet.png"
   <h3>Bedankt om tot hier te kijken!</h3>
   <p>Nick Boucart - CoderDojo Halle - nerdkunst.be</p>
 </Slide>
+
+<Slide autoslide={200} />
