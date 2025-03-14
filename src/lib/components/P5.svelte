@@ -6,7 +6,7 @@
 	import { javascript } from '@codemirror/lang-javascript';
 	import { cobalt } from 'thememirror';
 
-	let { code, htmlPage = 'index.html', editor = true, autoplay = false } = $props();
+	let { code, htmlPage = 'index.html', editor = true, autoplay = false, lines = null } = $props();
 
 	let name = Math.random().toString(36).substring(2, 7);
 
@@ -38,7 +38,7 @@
 <div class="not-prose flex w-full flex-row flex-nowrap justify-center gap-10">
 	{#if editor}
 <div class="w-1/2 flex-initial pt-0 mt-0">
-		<CodeBlock code={code} />
+		<CodeBlock code={code} {lines} />
         </div>
 	{/if}
 

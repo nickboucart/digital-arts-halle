@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Slide from './slide.svelte'
-	import Notes from './notes.svelte'
 	import P5 from '$lib/components/P5.svelte'
   import CodeBlock from '$lib/deck/code.svelte'
 
@@ -330,18 +329,22 @@ function draw() {
 }`
 
 let knots = `let straal = 125;
+let xFactor;
+let yFactor;
 
 function setup() {
   createCanvas(400, 400);
   background(220);
   colorMode(HSL);
+  xFactor = round(random(20, 50));
+  yFactor = round(random(20, 50));
 }
 
 function draw() {
   translate(width / 2, height / 2);
 
-  let x = straal * cos(frameCount / 45);
-  let y = straal * sin(frameCount / 20);
+  let x = straal * cos(frameCount / xFactor);
+  let y = straal * sin(frameCount / yFactor);
 
   noStroke();
   fill(frameCount % 360, 75, 50);
@@ -592,7 +595,58 @@ function draw() {
   }
 }`
 
+let truchet = `var tegelsPerRij;
+var grootteTegel;
+
+function setup() {
+  createCanvas(400, 400);
+  tegelsPerRij = round(random(5, 20))
+  grootteTegel = width / tegelsPerRij;
+  noLoop();
+}
+
+function draw() {
+  rood = random(0,255);
+  groen = random(0,255);
+  blauw = random(0,255);
+  background(rood, groen, blauw);
+  complementaireKleur = berekenComplementaireKleur(rood, groen, blauw);
+  noFill();
+  strokeWeight(8);
+  stroke(complementaireKleur);
+  for (var x = 0; x < tegelsPerRij; x++) {
+    for (var y = 0; y < tegelsPerRij; y++) {
+      tegel = random([tile1, tile2]);
+      tegel(x * grootteTegel, y * grootteTegel, grootteTegel);
+    }
+  }
+}
+
+function tile1(x, y, breedte) {
+  push();
+  translate(x, y);
+  arc(0, 0, breedte, breedte, 0, PI / 2);
+  arc(breedte, breedte, breedte, breedte, PI, (3 * PI) / 2);
+  pop();
+}
+
+function tile2(x, y, breedte) {
+  push();
+  translate(x, y);
+  arc(breedte, 0, breedte, breedte, PI / 2, PI);
+  arc(0, breedte, breedte, breedte, (3 * PI) / 2, 0);
+  pop();
+}
+
+function berekenComplementaireKleur(rood, groen, blauw) {
+  complementairRood = 255-rood;
+  complementairGroen = 255-groen;
+  complementairBlauw = 255-blauw;
+  return color(complementairRood, complementairGroen, complementairBlauw)
+}`
+
 import vierkanten from "$lib/assets/vierkanten.png"
+import variatie_truchet from "$lib/assets/variatie-truchet.png"
 </script>
 
 
@@ -608,22 +662,20 @@ import vierkanten from "$lib/assets/vierkanten.png"
 </Slide>
 
 <Slide>
-  <p>Generatieve kunst is kunst die wordt gecreëerd met behulp van een <span class="italic">systeem</span> (een algoritme, een computerprogramma of regels). </p>
+  <p>Een generatief kunstenaar bouwt een <span class="italic">systeem</span> dat op basis van regels autonoom kunstwerken maakt. </p>
 </Slide>
 
 <Slide>
-  <p> Vaak speelt willekeur (randomness) een rol in dit proces, waardoor elk gegenereerd kunstwerk uniek is en onvoorspelbare variaties kan vertonen. </p>
+  <p> Vaak speelt willekeur (randomness) hierbij een rol, waardoor elk gegenereerd kunstwerk uniek en onvoorspelbaar is. </p>
 </Slide>
 
 <Slide autoslide={4000}>
-  <h3>Een voorbeeldje gaat veel duidelijk maken &#128521;</h3>
+  <h3>Een voorbeeldje zal veel duidelijk maken &#128521;</h3>
   </Slide>
 
-  <Slide autoslide={2000}>
-    <p class="">Stel, je tekent je scherm vol met schuine streepjes.</p>
-    <p class="fragment fade-in">Voor je een streepje tekent, gooi je een muntje op.</p>
-    <p class="fragment fade-in">Bij kop teken je een schuin streepje naar links. </p>
-    <p class="fragment fade-in">Bij munt een / </p>
+  <Slide autoslide={2500}>
+    <p class="">Stel, je tekent je scherm vol met schuine streepjes:  / of \</p>
+    <p class="fragment fade-in">Je kiest het volgende streepje op basis van kop (/) of munt (\).</p>
     <p class="fragment fade-in">Hoe zou je tekening eruit zien?</p>
   </Slide>
  
@@ -632,72 +684,69 @@ import vierkanten from "$lib/assets/vierkanten.png"
 </Slide> 
 
 <Slide>
-  <h3>Dit is een bekende one-liner uit de jaren 1980 op de Commodore 64</h3>
+  <h3>Dit is een bekende one-liner voor de Commodore 64.</h3>
  <CodeBlock code={"10 PRINT CHR$(205.5+RND(1)); : GOTO 10"}/>
 
 </Slide> 
 
 <Slide>
-  <h3>Elke keer je dit programmaatje laat lopen, krijg je een andere, unieke tekening, kijk zelf!</h3>
+  <h3>Elke keer je dit programmaatje laat lopen, krijg je een andere, unieke tekening!</h3>
 </Slide>
 
-<Slide autoslide={500}>
+<Slide autoslide={100}>
   <p class="hidden">lege slide omdat anders transitie raar doet.</p>
 </Slide>
 
-<Slide transition={"none"}>
+<Slide transition={"none"} autoslide={3000}>
   <P5 code={print10bis} editor={false} autoplay />
 </Slide>
 
-<Slide transition={"none"} >
+<Slide transition={"none"}  autoslide={3000} >
   <P5 code={print10bis} editor={false} autoplay />
 </Slide>
 
-<Slide transition={"none"} >
+<Slide transition={"none"} autoslide={3000} >
   <P5 code={print10bis} editor={false} autoplay />
 </Slide>
-<Slide transition={"none"}>
+<Slide transition={"none"}  autoslide={3000}>
   <P5 code={print10bis} editor={false} autoplay />
 </Slide>
 
 
-<Slide>
+<Slide  autoslide={3000}>
   <h3>Fascinerend, niet? &#128521;</h3>
 </Slide>
 
-<Slide>
+<Slide  autoslide={3000}>
   <h3>Het wordt nog interessanter met wat variatie!</h3>
+  <p>Kijk ook even naar de gehighlighte code.</p>
 
 </Slide>
 <Slide transition={"none"}>
   <h3>Grotere streepjes</h3>
-  <P5 code={print10bislijn1} editor autoplay />
+  <P5 code={print10bislijn1} editor autoplay lines={"1"} />
 </Slide>
 <Slide transition={"none"}>
   <h3>Kleinere streepjes</h3>
-  <P5 code={print10bislijn2} editor autoplay />
+  <P5 code={print10bislijn2} editor autoplay lines={"1"}/>
 </Slide>
 <Slide transition={"none"}>
   <h3>Kleuren</h3>
-  <P5 code={print10biskleur1} editor autoplay />
+  <P5 code={print10biskleur1} editor autoplay lines={"6,11"} />
 </Slide>
 <Slide transition={"none"}>
   <h3>Kleuren</h3>
-  <P5 code={print10biskleur2} editor autoplay />
+  <P5 code={print10biskleur2} editor autoplay lines={"6,11"} />
 </Slide>
 
 <Slide transition={"none"} >
   <h3>Hoeveelheid willekeur</h3>
-  <P5 code={print10bisrand1} editor autoplay />
-</Slide>
-<Slide transition={"none"} >
-  <h3>Hoeveelheid willekeur</h3>
-  <P5 code={print10bisrand2} editor autoplay />
+  <P5 code={print10bisrand1} editor autoplay lines={"2, 15"} />
 </Slide>
 
 <Slide>
-  <h3>Nog enkele voorbeelden, de code staat er altijd naast</h3>
-  </Slide>
+  <h3>Nog voorbeelden van generatieve kunst, de code staat er telkens naast.</h3>
+</Slide>
 
 <Slide>
   <h3>Vierkanten, kleuren en willekeur</h3>
@@ -709,15 +758,27 @@ import vierkanten from "$lib/assets/vierkanten.png"
   <P5 code={squares3} editor autoplay />
 </Slide>
 
-<Slide>
-  <h3>Een proceduraal landschap</h3>
-  <P5 code={landscape} editor autoplay />
-
-</Slide>
 <Slide autoslide={30*1000}>
-  <h3>Vliegen over een proceduraal landschap</h3>
+  <h3>Vliegen over een gegenereerd landschap</h3>
   <P5 code={landscape2} editor autoplay />
+</Slide>
 
+<Slide autoslide={2000}>
+  <h3>Truchet tegels</h3>
+  <P5 code={truchet} editor autoplay />
+</Slide>
+
+<Slide autoslide={2000}>
+  <h3>Truchet tegels</h3>
+  <P5 code={truchet} editor autoplay />
+</Slide>
+<Slide autoslide={2000}>
+  <h3>Truchet tegels</h3>
+  <P5 code={truchet} editor autoplay />
+</Slide>
+<Slide autoslide={2000}>
+  <h3>Truchet tegels</h3>
+  <P5 code={truchet} editor autoplay />
 </Slide>
 
 <Slide>
@@ -726,7 +787,7 @@ import vierkanten from "$lib/assets/vierkanten.png"
 
 <Slide autoslide={30*1000}>
   <h4>Spelen met sinus en cosinus</h4>
-  <P5 code={knots} editor autoplay />
+  <P5 code={knots} editor autoplay lines={"9-10,16-17"} />
 </Slide>
 
 <Slide autoslide={60*1000}>
@@ -753,7 +814,7 @@ import vierkanten from "$lib/assets/vierkanten.png"
 </Slide>
 
 
-<Slide backgroundImage={vierkanten}>
+<Slide backgroundImage={variatie_truchet}>
   <p>Ga en druk je uit via code &#128512;</p>
   <p>Nick Boucart - CoderDojo Halle - nerdkunst.be</p>
 </Slide>
