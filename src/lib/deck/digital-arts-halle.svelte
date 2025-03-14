@@ -763,25 +763,25 @@ import variatie_truchet from "$lib/assets/variatie-truchet.png"
   <P5 code={landscape2} editor autoplay />
 </Slide>
 
-<Slide autoslide={2000}>
+<Slide autoslide={3000} transition={"none"}>
   <h3>Truchet tegels</h3>
   <P5 code={truchet} editor autoplay />
 </Slide>
 
-<Slide autoslide={2000}>
+<Slide autoslide={3000}  transition={"none"}>
   <h3>Truchet tegels</h3>
   <P5 code={truchet} editor autoplay />
 </Slide>
-<Slide autoslide={2000}>
+<Slide autoslide={3000}  transition={"none"}>
   <h3>Truchet tegels</h3>
   <P5 code={truchet} editor autoplay />
 </Slide>
-<Slide autoslide={2000}>
+<Slide autoslide={3000}  transition={"none"}>
   <h3>Truchet tegels</h3>
   <P5 code={truchet} editor autoplay />
 </Slide>
 
-<Slide>
+<Slide autoslide={3000}>
   <h4>Generatieve kunst <span class="text-red-400">&#10084;</span> Wiskunde</h4>
 </Slide>
 
@@ -813,8 +813,16 @@ import variatie_truchet from "$lib/assets/variatie-truchet.png"
   </ul>
 </Slide>
 
+<Slide>
+  <h3>Nog ééntje om het af te leren.</h3>
+</Slide>
+
+<Slide autoslide={60*1000}>
+  <h4>Vang zoveel mogelijk balletjes op tussen je duim en wijsvinger</h4>
+  <P5 code={"steam"} editor={false} htmlPage="matter/index.html" autoplay />
+</Slide>
 
 <Slide backgroundImage={variatie_truchet}>
-  <p>Ga en druk je uit via code &#128512;</p>
+  <h3>Bedankt om tot hier te kijken!</h3>
   <p>Nick Boucart - CoderDojo Halle - nerdkunst.be</p>
 </Slide>
