@@ -1,14 +1,12 @@
 <script lang="ts">
-
-  let {id = null, lines = null, noescape=true, children} = $props();
+	let { id = null, lines = null, noescape = true, code } = $props();
 </script>
 
-<pre data-id={id || null}>
-  <code
-    data-trim
-    data-line-numbers={lines || null}
-    data-noescape={noescape || null}
-  >
-  {@render children?.()}
-</code>
+<div class="w-full text-left text-2xl mt-0 pt-0">
+	<pre data-id={id || null}><code
+			class="language-javascript"
+			data-trim
+			data-line-numbers={lines || true}
+			data-noescape={noescape || null}>{code}</code>
 </pre>
+</div>

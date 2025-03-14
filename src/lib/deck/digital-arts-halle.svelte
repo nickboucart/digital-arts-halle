@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Slide from './slide.svelte'
-	import Code from './code.svelte'
 	import Notes from './notes.svelte'
 	import P5 from '$lib/components/P5.svelte'
+  import CodeBlock from '$lib/deck/code.svelte'
 
 	let print10 = `const size = 15;
 let x = 0;
@@ -633,12 +633,8 @@ import vierkanten from "$lib/assets/vierkanten.png"
 
 <Slide>
   <h3>Dit is een bekende one-liner uit de jaren 1980 op de Commodore 64</h3>
- <Code>
-  10 PRINT CHR$(205.5+RND(1)); : GOTO 10
- </Code>
- <Notes>
-  early 80's commodore 64  focus on single line programs, this is one of the most famous ones, and an excellent example of generative art
- </Notes>
+ <CodeBlock code={"10 PRINT CHR$(205.5+RND(1)); : GOTO 10"}/>
+
 </Slide> 
 
 <Slide>
