@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Slide from './slide.svelte'
-	import P5 from '$lib/components/P5.svelte'
+	import P5 from '$lib/components/P5.kiosk.svelte'
   import CodeBlock from '$lib/deck/code.svelte'
 
 	let print10 = `const size = 15;

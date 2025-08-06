@@ -1,5 +1,5 @@
 <script lang="ts">
-    import P5 from '$lib/components/P5.svelte'
+    import P5 from '$lib/components/P5.kiosk.svelte'
 	let sketch = `
 const size = 15;
 let x = 0;

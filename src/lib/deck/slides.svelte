@@ -18,11 +18,11 @@
 			autoAnimateEasing: 'ease',
 			autoAnimateDuration: 1,
 			hash: false,
-			autoSlide,
-			loop: true,
+			// autoSlide,
+			loop: false,
 			viewDistance: 2,
 			// disableLayout: true
-			controls: false,
+			controls: true,
 			// progress: false
 		})
 

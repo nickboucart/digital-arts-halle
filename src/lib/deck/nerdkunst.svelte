@@ -481,8 +481,8 @@ import gonio from "$lib/assets/gonio.png";
 
 <Slide>
   <h3>Famous one liner: 10 PRINT</h3>
- <Code>
-  10 PRINT CHR$(205.5+RND(1)); : GOTO 10
+ <Code code="10 PRINT CHR$(205.5+RND(1)); : GOTO 10">
+
  </Code>
  <Notes>
   early 80's commodore 64  focus on single line programs, this is one of the most famous ones, and an excellent example of generative art
