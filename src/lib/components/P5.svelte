@@ -10,6 +10,7 @@
 	let name = Math.random().toString(36).substring(2, 7);
 	let theSketch = $state(code);
 
+
 	let getUrlForReadyIframe = (theCode: string) => {
 		return autoplay
 			? getEntireUrlForIframe(theCode, htmlPage)
@@ -56,6 +57,8 @@
 				<a class="btn" href={getEntireUrlForIframe(theSketch, htmlPage)} target={name}
 					><CirclePlay /></a
 				>
+                <a class="btn" href={new URL('/p5/ready/index.html', url).toString()} target={name}><CirclePause /></a>
+
 			</div>
 		{/if}
 		<iframe
