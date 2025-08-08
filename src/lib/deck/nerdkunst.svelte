@@ -65,23 +65,10 @@ let vel;
 
 function setup() {
   createCanvas(100, 100);
-  // Create p5.Vector objects.
-  pos = createVector(50, 100);
-  vel = createVector(0, -1);
+  background("green")
 }
 
 function draw() {
-  background(200);
-  // Add velocity to position.
-  pos.add(vel);
-  // If the dot reaches the top of the canvas,
-  // restart from the bottom.
-  if (pos.y < 0) {
-    pos.y = 100;
-  }
-  // Draw the dot.
-  strokeWeight(5);
-  point(pos);
 }`
 
 let lines1 = `let l = 30;
@@ -471,7 +458,7 @@ import gonio from "$lib/assets/gonio.png";
 <Slide backgroundImage={vierkanten}>
 	<!-- todo: background image van de site en veel betere styling van tekst -->
 	<h1 class="text-black">NerdKunst</h1>
-	<p>Omdat wetenschap en technologie soms ook gewoon mooi kunnen zijn.</p>
+  <p>Because somethimes, science and technology are simply beautifull.</p>
   <p class="text-right text-xl">Nick Boucart - nerdkunst.be</p>
 </Slide>
 
@@ -557,7 +544,7 @@ import gonio from "$lib/assets/gonio.png";
   </Slide>
 
   <Slide>
-    <h3>Express yourselve through code</h3>
+    <h3>Express yourself through code</h3>
     <ul style="list-style-type: none;" class="r-stack">
       <li class="fragment fade-in-then-out">Visual - show, don't tell</li>
       <li class="fragment fade-in-then-out">Fun way to explore programming and algorithms</li>
@@ -626,14 +613,67 @@ import gonio from "$lib/assets/gonio.png";
 </Slide>
 
 <Slide>
-  <h3>Anatomy of a P5js sketch</h3>
-  <P5 code={boilerplate} editor autoplay />
+  <Slide>
+    <h2>P5js Basics</h2>
+  </Slide>
+  <Slide>
+  <h3>Minimal sketch</h3>
+      <P5 editor autoplay 
+    code={`function setup() {
+  createCanvas(500, 500);
+  background("green")
+}
+
+function draw() {
+}`}  />
+</Slide>
+  <Slide>
+    <h3>Basic shapes</h3>
+    <P5 editor autoplay 
+    code={`function setup() {
+  createCanvas(400, 400);
+  background('green');
+  fill("red");
+  circle(20,50, 50);
+  
+  stroke('magenta');
+  strokeWeight(5);
+  line(100, 60, 150, 300);
+  
+  noFill();
+  stroke("black");
+  strokeWeight(2)
+  rect(300, 200, 55, 40);
+}
+
+function draw() {
+}`}  />
 <Notes>
-<p>setup() en draw()
-  createCanvas()
-  point() er is ook circle(), line(), rect(), ...
-</p>
+  Play a bit with the parameters of the different shapes
 </Notes>
+  </Slide>
+  <Slide>
+    <h3>Movement</h3>
+    <P5 editor autoplay 
+    code={`let size = 0.1;
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(20);
+  translate(width/2, height/2);
+  fill(100, 200, 255);
+  ellipse(0, 0, size, size);
+  size += 5;
+
+  if (size > 300) {
+    size = 5;
+  }
+}`}  />
+<Notes>Change the size increment to slow down or speed up the animation</Notes>
+  </Slide>
 </Slide>
 
 <Slide>
@@ -691,10 +731,8 @@ import gonio from "$lib/assets/gonio.png";
 
 <Slide>
   <h3>P5js and AI</h3>
-  <P5 code={steam} editor={false} htmlPage="ml5/index.html" autoplay={false} />
+  <P5 code={steam} editor={false} htmlPage="ml5/index.html" autoplay={true} />
 </Slide>
-
-
 
 <Slide>
   <h3>Some resources</h3>
